@@ -8,6 +8,129 @@
   }
 
   body {
-    @apply bg-white text-slate-900 antialiased;
+    @apply bg-bm-bg font-display text-bm-text antialiased;
+  }
+}
+
+@layer components {
+  .bm-container {
+    @apply mx-auto w-full max-w-6xl px-6;
+  }
+
+  .bm-card {
+    @apply rounded-2xl border border-bm-border bg-bm-card/80 backdrop-blur-sm;
+  }
+
+  .bm-btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-bm-accent px-5 text-sm font-semibold text-bm-bg transition hover:bg-sky-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bm-accent;
+  }
+
+  .bm-btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-bm-border px-5 text-sm font-semibold text-bm-text transition hover:border-bm-muted hover:bg-bm-card;
+  }
+
+  .bm-section {
+    @apply py-16 md:py-20;
+  }
+
+  .stagger-children > * {
+    opacity: 0;
+    animation: fadeUp 0.7s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .stagger-children > *:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .stagger-children > *:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+  .stagger-children > *:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+  .stagger-children > *:nth-child(5) {
+    animation-delay: 0.33s;
+  }
+  .stagger-children > *:nth-child(6) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.ai-flow-line {
+  stroke-dasharray: 120;
+  animation: dataFlow 2.8s ease-in-out infinite;
+}
+
+.ai-flow-line-delay-1 {
+  animation-delay: 0.4s;
+}
+.ai-flow-line-delay-2 {
+  animation-delay: 0.9s;
+}
+.ai-flow-line-delay-3 {
+  animation-delay: 1.4s;
+}
+
+.build-floor {
+  transform-origin: bottom center;
+  animation: buildStack 3s ease-in-out infinite;
+}
+
+.build-floor-2 {
+  animation-delay: 0.35s;
+}
+.build-floor-3 {
+  animation-delay: 0.7s;
+}
+.build-floor-4 {
+  animation-delay: 1.05s;
+}
+
+@keyframes buildStack {
+  0%,
+  100% {
+    transform: scaleY(0.92);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

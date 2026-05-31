@@ -1,27 +1,34 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import BrandLogo from "./BrandLogo";
 import { navLinks } from "../data/siteContent";
 
-const portalOrigin = (
-  import.meta.env.VITE_PORTAL_ORIGIN || "http://localhost:5174"
-).replace(/\/$/, "");
-const loginUrl = `${portalOrigin}/login`;
+const portalOrigin = (() => {
+  const fromEnv = import.meta.env.VITE_PORTAL_ORIGIN?.trim();
+  if (fromEnv) return fromEnv.replace(/\/$/, "");
+  if (import.meta.env.DEV) return "http://localhost:5174";
+  return "";
+})();
+const loginUrl = portalOrigin ? `${portalOrigin}/login` : "#";
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="shrink-0">
-          <BrandLogo className="h-10 w-auto" />
+    <header className="sticky top-0 z-30 border-b border-bm-border bg-bm-bg/90 backdrop-blur-md">
+      <div className="bm-container flex items-center justify-between py-4">
+        <Link to="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
+          <BrandLogo className="h-10 w-auto" variant="dark" />
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
+
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `text-sm font-medium transition hover:text-blue-600 ${
-                  isActive ? "text-blue-600" : "text-slate-600"
+                `text-sm font-medium transition hover:text-bm-accent ${
+                  isActive ? "text-bm-accent" : "text-bm-muted"
                 }`
               }
             >
@@ -29,27 +36,65 @@ function Header() {
             </NavLink>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+
+        <div className="hidden items-center gap-3 md:flex">
           <a
             href={loginUrl}
-            className="inline-flex h-10 items-center px-2 text-sm font-semibold leading-none text-slate-700 transition hover:text-blue-600"
+            className="inline-flex h-10 items-center px-2 text-sm font-semibold text-bm-muted transition hover:text-bm-text"
           >
             Log in
           </a>
-          <Link
-            to="/request-demo"
-            className="hidden h-10 items-center justify-center rounded-lg border border-slate-300 px-4 text-sm font-semibold leading-none text-slate-700 transition hover:border-slate-400 md:inline-flex"
-          >
+          <Link to="/request-demo" className="bm-btn-ghost h-10">
             Request Demo
           </Link>
-          <Link
-            to="/"
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-blue-600 px-4 text-sm font-semibold leading-none text-white transition hover:bg-blue-700"
-          >
+          <Link to="/request-demo" className="bm-btn-primary h-10">
             Get Started
           </Link>
         </div>
+
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-bm-border text-bm-text md:hidden"
+          aria-expanded={menuOpen}
+          aria-label="Toggle menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="text-lg">{menuOpen ? "✕" : "☰"}</span>
+        </button>
       </div>
+
+      {menuOpen ? (
+        <nav
+          className="border-t border-bm-border bg-bm-surface px-6 py-4 md:hidden"
+          aria-label="Mobile"
+        >
+          <ul className="flex flex-col gap-3">
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `block text-sm font-medium ${isActive ? "text-bm-accent" : "text-bm-muted"}`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+            <li>
+              <a href={loginUrl} className="block text-sm font-medium text-bm-muted">
+                Log in
+              </a>
+            </li>
+            <li>
+              <Link to="/request-demo" className="bm-btn-primary w-full" onClick={() => setMenuOpen(false)}>
+                Get Started
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      ) : null}
     </header>
   );
 }

@@ -1,25 +1,43 @@
-import { blogPosts } from "../data/siteContent";
+import PageHero from "../components/PageHero";
+import { blogPosts, images } from "../data/siteContent";
 
 function Blog() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 py-16">
-      <h1 className="text-4xl font-bold text-slate-900">FleetMind AI Blog</h1>
-      <p className="mt-4 max-w-3xl text-slate-600">
-        Explore practical insights on AI fleet optimization, safety, maintenance, and customer
-        experience.
-      </p>
+    <div>
+      <PageHero
+        title="BuildMind Blog"
+        subtitle="Practical insights on construction scheduling, workforce management, equipment, and safety."
+        image={images.safety}
+      />
 
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {blogPosts.map((post) => (
-          <article key={post.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
-              {post.category}
-            </span>
-            <h2 className="mt-4 text-xl font-semibold text-slate-900">{post.title}</h2>
-            <p className="mt-2 text-slate-600">{post.excerpt}</p>
-          </article>
-        ))}
-      </div>
+      <section className="bm-section">
+        <div className="bm-container">
+          <div className="grid gap-6 md:grid-cols-3">
+            {blogPosts.map((post) => (
+              <article key={post.title} className="bm-card overflow-hidden">
+                <img src={post.image} alt="" className="h-44 w-full object-cover" loading="lazy" />
+                <div className="p-6">
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-bm-accent/15 px-3 py-1 text-xs font-semibold text-bm-accent">
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-slate-500">{post.readTime}</span>
+                  </div>
+                  <h2 className="mt-4 text-xl font-semibold text-white">{post.title}</h2>
+                  <p className="mt-2 text-sm text-bm-muted">{post.excerpt}</p>
+                  <button
+                    type="button"
+                    className="mt-4 text-sm font-semibold text-bm-accent hover:text-sky-300"
+                    aria-label={`Read article: ${post.title}`}
+                  >
+                    Coming soon →
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

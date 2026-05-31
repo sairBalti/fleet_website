@@ -12,7 +12,7 @@ import RequestDemo from "./pages/RequestDemo";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex min-h-screen flex-col bg-bm-bg">
         <Header />
         <main className="flex-grow">
           <Routes>

@@ -1,29 +1,60 @@
+import { Link } from "react-router-dom";
+import { navLinks } from "../data/siteContent";
+
 function Footer() {
   return (
-    <footer id="contact" className="border-t border-slate-200 bg-slate-950 py-12 text-slate-300">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 md:grid-cols-3">
-        <div>
-          <h3 className="text-lg font-semibold text-white">FleetMind AI</h3>
-          <p className="mt-3 text-sm text-slate-400">
-            End-to-end AI based fleet management platform for complex transport operations.
+    <footer className="border-t border-bm-border bg-bm-surface">
+      <div className="bm-container grid gap-10 py-14 md:grid-cols-4">
+        <div className="md:col-span-2">
+          <h3 className="text-lg font-bold text-white">BuildMind</h3>
+          <p className="mt-3 max-w-sm text-sm text-bm-muted">
+            AI-powered construction operations — projects, workforce, materials, equipment, and
+            finance in one platform built for the field.
           </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {["SOC2-ready", "Role-based access", "Multi-site"].map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-bm-border bg-bm-card px-3 py-1 text-xs text-bm-muted"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
         </div>
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200">Contact</h4>
-          <p className="mt-3 text-sm text-slate-400">ssairabatool98@gmail.com</p>
-          <p className="text-sm text-slate-400">+92 34800000</p>
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-bm-text">Explore</h4>
+          <ul className="mt-4 space-y-2">
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="text-sm text-bm-muted transition hover:text-bm-accent">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                to="/request-demo"
+                className="text-sm text-bm-muted transition hover:text-bm-accent"
+              >
+                Request Demo
+              </Link>
+            </li>
+          </ul>
         </div>
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200">Head Office</h4>
-          <p className="mt-3 text-sm text-slate-400">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-bm-text">Contact</h4>
+          <p className="mt-4 text-sm text-bm-muted">ssairabatool98@gmail.com</p>
+          <p className="text-sm text-bm-muted">+92 34800000</p>
+          <p className="mt-4 text-sm text-bm-muted">
             145 Innovation Drive, Mobility District
             <br />
-            Skardu Pakistan
+            Skardu, Pakistan
           </p>
         </div>
       </div>
-      <p className="mx-auto mt-10 w-full max-w-6xl border-t border-slate-800 px-6 pt-5 text-sm text-slate-500">
-        &copy; {new Date().getFullYear()} FleetMind AI. All rights reserved.
+      <p className="border-t border-bm-border py-5 text-center text-sm text-slate-500">
+        &copy; {new Date().getFullYear()} BuildMind. All rights reserved.
       </p>
     </footer>
   );

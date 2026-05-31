@@ -6,94 +6,174 @@ export const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
+/** Curated Unsplash construction imagery (hotlink-friendly for marketing site) */
+export const images = {
+  hero:
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80",
+  heroSecondary:
+    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+  aiDashboard:
+    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80",
+  crane:
+    "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80",
+  /** AI integrations section on Home — active construction site */
+  aiIntegrations:
+    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
+  commercialTower:
+    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80",
+  heavyMachinery:
+    "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80",
+  workforce:
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+  materials:
+    "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80",
+  equipment:
+    "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80",
+  safety:
+    "https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=900&q=80",
+  aboutTeam:
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+  gallery: [
+    {
+      src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80",
+      alt: "Modern commercial tower under construction",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=600&q=80",
+      alt: "Infrastructure bridge construction site",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80",
+      alt: "Heavy machinery on industrial job site",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
+      alt: "Residential development framing phase",
+    },
+  ],
+};
+
 export const stats = [
-  { label: "Fleet uptime improvement", value: "34%" },
-  { label: "Fuel cost reduction", value: "22%" },
-  { label: "Automated daily decisions", value: "2.8M+" },
+  { label: "On-time project delivery", value: "28%", trend: "avg. improvement" },
+  { label: "Equipment idle-time reduction", value: "19%", trend: "fleet-wide" },
+  { label: "Automated operational decisions", value: "1.2M+", trend: "per year" },
 ];
 
 export const features = [
   {
-    title: "Smart Dispatch",
+    title: "Project Control Center",
     description:
-      "Auto-assign jobs by route distance, vehicle capability, traffic, and driver availability.",
+      "Plan milestones, track tasks, and monitor progress across every active job site from one workspace.",
+    image: images.heroSecondary,
+    icon: "project",
   },
   {
-    title: "Predictive Maintenance",
+    title: "Workforce & Safety",
     description:
-      "Detect failure patterns early from telematics and service history before breakdowns happen.",
+      "Schedule shifts, manage attendance, and run quality inspections with role-based access for field teams.",
+    image: images.workforce,
+    icon: "workforce",
   },
   {
-    title: "Unified Operations",
+    title: "Materials & Procurement",
     description:
-      "Manage vehicles, drivers, assets, compliance, and clients from one centralized workspace.",
+      "Control inventory, purchase orders, and material usage tied directly to project budgets.",
+    image: images.materials,
+    icon: "materials",
   },
   {
-    title: "Live Fleet Control",
+    title: "Equipment Intelligence",
     description:
-      "Track every movement in real-time with instant alerts for delays, geofence events, or risks.",
+      "Track machinery assignments, maintenance, and utilization to reduce downtime on site.",
+    image: images.equipment,
+    icon: "equipment",
   },
 ];
 
 export const aiIntegrations = [
   {
-    name: "Route Intelligence Engine",
+    name: "Schedule Risk Engine",
     description:
-      "Uses historical and live data to optimize routes and minimize delay penalties.",
+      "Flags delayed milestones and recommends re-sequencing before deadlines slip.",
+    metric: "14 days",
+    metricLabel: "avg. early warning",
   },
   {
-    name: "Driver Safety Co-pilot",
+    name: "Workforce Optimizer",
     description:
-      "AI risk scoring highlights unsafe behavior and provides personalized coaching actions.",
+      "Balances labor capacity with task priorities and compliance requirements.",
+    metric: "22%",
+    metricLabel: "overtime reduction",
   },
   {
-    name: "Maintenance Forecast Model",
+    name: "Equipment Utilization Model",
     description:
-      "Projects part failures using mileage, vibration, and diagnostic trends.",
+      "Predicts idle equipment and suggests redeployment across projects.",
+    metric: "31%",
+    metricLabel: "better utilization",
   },
   {
-    name: "Demand Prediction Hub",
+    name: "Budget Variance Hub",
     description:
-      "Forecasts order peaks by location and season so you can scale resources proactively.",
+      "Surfaces cost overruns early using expense, invoice, and procurement signals.",
+    metric: "8%",
+    metricLabel: "cost variance caught sooner",
   },
 ];
 
 export const industries = [
-  "Logistics",
-  "Transportations",
-  "Delivery Services",
-  "Constructions",
-  "Maintaniance Services",
-  "Rental Services",
-  "Public Transport",
+  "General Contracting",
+  "Commercial Construction",
+  "Residential Development",
+  "Infrastructure",
+  "Industrial & Energy",
 ];
 
 export const businessTypes = [...industries];
 
 export const trustPoints = [
-  "ISO-aligned security policies and encrypted telematics data transfer.",
-  "Role-based access controls with full operational activity audit trails.",
-  "High-availability architecture with automatic backups and incident response readiness.",
+  {
+    title: "Role-based governance",
+    description:
+      "Full audit trails for project and financial actions across every role on site.",
+  },
+  {
+    title: "Secure by design",
+    description:
+      "Encrypted data handling and secure workforce invitation workflows.",
+  },
+  {
+    title: "Enterprise scale",
+    description:
+      "Multi-company, multi-branch architecture built for growing contractors.",
+  },
 ];
 
 export const blogPosts = [
   {
-    title: "How AI Dispatching Improves Last-Mile Fleet Profitability",
+    title: "How AI Scheduling Reduces Construction Delays",
     excerpt:
-      "A practical framework to reduce idle time, failed deliveries, and route overlap using AI.",
-    category: "Operations",
+      "A practical framework to align milestones, labor, and equipment before critical path slips.",
+    category: "Projects",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+    readTime: "6 min read",
   },
   {
-    title: "Predictive Maintenance for Heavy Construction Fleets",
+    title: "Equipment Utilization on Multi-Site Programs",
     excerpt:
-      "Turn service logs and sensor data into maintenance schedules that prevent downtime.",
-    category: "Maintenance",
+      "Turn maintenance logs and assignment data into smarter machinery deployment.",
+    category: "Equipment",
+    image: images.equipment,
+    readTime: "5 min read",
   },
   {
-    title: "Building Trust in Public Transport with Real-Time Visibility",
+    title: "Field Safety Inspections That Teams Actually Use",
     excerpt:
-      "Increase rider confidence with transparent ETAs, safety monitoring, and service analytics.",
-    category: "Public Transport",
+      "Increase compliance with mobile-friendly quality and safety workflows.",
+    category: "Safety",
+    image: images.safety,
+    readTime: "4 min read",
   },
 ];
 
@@ -101,47 +181,50 @@ export const aboutHighlights = [
   {
     title: "Mission",
     description:
-      "Help fleet businesses make faster, safer, and more profitable decisions using practical AI.",
+      "Help construction businesses deliver projects on time, on budget, and with safer job sites.",
   },
   {
     title: "Vision",
     description:
-      "Build the most trusted intelligent operations platform for global mobility and transport teams.",
+      "Become the trusted operations platform for contractors managing complex, multi-branch programs.",
   },
   {
     title: "Approach",
     description:
-      "Combine domain experts, telematics data, and applied AI models in one workflow-first product.",
+      "Combine project management, workforce, materials, and finance in one workflow-first product.",
   },
 ];
 
 export const pricingPlans = [
   {
     name: "Starter",
-    price: "$99/mo",
-    description: "For small fleet operations starting digital transformation.",
-    features: ["Up to 25 vehicles", "Live tracking", "Basic reporting", "Email support"],
+    price: "$149/mo",
+    description: "For small contractors digitizing projects and workforce.",
+    features: ["Up to 5 active projects", "Workforce scheduling", "Basic reporting", "Email support"],
+    highlighted: false,
   },
   {
     name: "Growth",
-    price: "$299/mo",
-    description: "For growing businesses managing mixed operations.",
+    price: "$399/mo",
+    description: "For growing firms managing multiple sites and teams.",
     features: [
-      "Up to 150 vehicles",
-      "AI dispatch optimizer",
-      "Maintenance predictions",
+      "Unlimited projects",
+      "Materials & procurement",
+      "Equipment tracking",
       "Priority support",
     ],
+    highlighted: true,
   },
   {
     name: "Enterprise",
     price: "Custom",
-    description: "For large organizations needing deep integrations and governance.",
+    description: "For large organizations needing governance and integrations.",
     features: [
-      "Unlimited vehicles",
-      "Advanced AI suite",
+      "Multi-company hierarchy",
+      "Advanced reporting",
       "SSO and role governance",
       "Dedicated success manager",
     ],
+    highlighted: false,
   },
 ];

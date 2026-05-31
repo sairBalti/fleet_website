@@ -1,31 +1,30 @@
 import PropTypes from "prop-types";
 
-function BrandLogo({ className = "h-10 w-auto" }) {
+function BrandLogo({ className = "h-10 w-auto", variant = "dark" }) {
+  const textFill = variant === "light" ? "#0B1120" : "#F8FAFC";
+  const subFill = variant === "light" ? "#0F766E" : "#94A3B8";
+
   return (
     <svg
       className={className}
-      viewBox="0 0 220 64"
+      viewBox="0 0 240 64"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="FleetMind AI"
+      aria-label="BuildMind Construction Platform"
     >
       <defs>
-        <linearGradient id="fleetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#2563EB" />
-          <stop offset="100%" stopColor="#14B8A6" />
+        <linearGradient id="buildGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#38bdf8" />
+          <stop offset="100%" stopColor="#f59e0b" />
         </linearGradient>
       </defs>
-      <rect x="2" y="4" width="56" height="56" rx="16" fill="url(#fleetGradient)" />
-      <path
-        d="M15 37h23l-5 8H10l5-8zm6-18h27l-4 7H24l-3 4h19l-4 7H17l4-7h8l3-4h-15l4-7z"
-        fill="#fff"
-      />
-      <circle cx="44" cy="45" r="4" fill="#0B1120" />
-      <text x="70" y="30" fontSize="22" fontWeight="700" fill="#0B1120">
-        FleetMind
+      <rect x="2" y="4" width="56" height="56" rx="16" fill="url(#buildGradient)" />
+      <path d="M14 42h32v6H14v-6zm4-22h8v20h-8V20zm12 0h8v20h-8V20zm12-8H14v6h32V12z" fill="#fff" />
+      <text x="70" y="30" fontSize="22" fontWeight="700" fill={textFill}>
+        BuildMind
       </text>
-      <text x="70" y="48" fontSize="14" fontWeight="600" fill="#0F766E">
-        AI Fleet Platform
+      <text x="70" y="48" fontSize="13" fontWeight="600" fill={subFill}>
+        Construction Platform
       </text>
     </svg>
   );
@@ -33,6 +32,7 @@ function BrandLogo({ className = "h-10 w-auto" }) {
 
 BrandLogo.propTypes = {
   className: PropTypes.string,
+  variant: PropTypes.oneOf(["dark", "light"]),
 };
 
 export default BrandLogo;
